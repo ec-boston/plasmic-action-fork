@@ -25,22 +25,22 @@ export function assertNoSingleQuotes(str: string) {
 export function mkPackageManagerCmds(cwd: string): PackageManagerCmds {
   const useYarn = existsSync(path.join(cwd, "yarn.lock"));
 
-  if (useYarn) {
-    return {
-      install: "yarn",
-      run: "yarn",
-      add: "yarn add -W",
-      cmd: "yarn",
-    };
-  }
-
+  // if (useYarn) {
   return {
-    install: "npm install",
-    run: "npm run",
-    add: "npm install",
-    cmd: "npx",
+    install: "yarn",
+    run: "yarn",
+    add: "yarn add -W",
+    cmd: "yarn",
   };
 }
+
+//   return {
+//     install: "npm install",
+//     run: "npm run",
+//     add: "npm install",
+//     cmd: "npx",
+//   };
+// }
 
 export function mkPrBranchName(targetBranch: string) {
   return `plasmicops/${nanoid(8)}/${targetBranch}`;
